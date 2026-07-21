@@ -18,6 +18,8 @@ if not GOOGLE_API_KEY:
     st.error("GOOGLE_API_KEY not found")
     st.stop()
 
+os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+
 CHROMA_DB_PATH = "./ML_chroma_db"
 
 # ==========================================
