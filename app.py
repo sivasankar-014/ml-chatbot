@@ -7,10 +7,12 @@ from langchain_google_genai import (
     ChatGoogleGenerativeAI,
     GoogleGenerativeAIEmbeddings
 )
-
+from dotenv import load_dotenv
 # ==========================================
 # CONFIG
 # ==========================================
+
+load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
@@ -125,7 +127,7 @@ Answer:
 
     response = llm.invoke(prompt)
 
-    answer = response.content
+    answer = response.content[0]['text']
 
     with st.chat_message("assistant"):
         st.markdown(answer)
